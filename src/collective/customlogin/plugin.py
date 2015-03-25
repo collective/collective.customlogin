@@ -1,5 +1,6 @@
 from AccessControl.SecurityInfo import ClassSecurityInfo
 from collective.customlogin.events import UnauthorizedEvent
+from collective.customlogin.utils import find_context
 from collective.customlogin.utils import get_challenge_status
 from Globals import DTMLFile
 from plone import api
@@ -44,8 +45,7 @@ class CustomLogin(BasePlugin):
         self.title = title
 
     def challenge(self, request, response):
-        portal = api.portal.get()
-        ob = portal.unrestrictedTraverse(request['PATH_INFO'])
+        ob = find_context(request)
         event = UnauthorizedEvent(ob)
         notify(event)
         # Get the status of the challenge
