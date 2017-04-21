@@ -13,7 +13,7 @@ Examples
 --------
 Filling out a form to download a pdf. This can be achieved via creating a rule 
 that redirects to a PloneFormGen form and then applying the content rule to the 
-private content objects you want to protect. Using a PFT script adapter you
+private content objects you want to protect. Using a PFG script adapter,Plomino or Rapido, you
 can use something like tokenrole to give permission to original object once
 the user has filled out the form correctly. 
 
